@@ -4,6 +4,7 @@ public class Help {
     private final static String COLOR2 = My.ANSI_RED;
     private final static String COLOR_HELP = My.ANSI_RESET;
 
+    private final static String GIT_URL = "https://github.com/AlexeyPertsukh/hw13-java-enum-game-football";
 
     private static final String[] HELP = {
             "--------------",
@@ -27,6 +28,7 @@ public class Help {
             "  пока одна из команд не забьёт на один гол больше при одинаковом количестве   ",
             "  выполненных ударов (правило мгновенной смерти).                              ",
             "--------------",
+            GIT_URL,
 
     };
 

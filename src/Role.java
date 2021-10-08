@@ -1,5 +1,8 @@
 public enum Role {
-    GOALKEEPER("вратарь"), DEFENDER("защитник"), MIDFIELDER("полузащитник"), ATTACKER("нападающий");
+    GOALKEEPER("вратарь"),
+    DEFENDER("защитник"),
+    MIDFIELDER("полузащитник"),
+    ATTACKER("нападающий");
 
     private String roleRuss;
 

@@ -116,31 +116,31 @@ public class Game {
     public void addTeams() {
         //Шинник
         team1 = new Team("Шинник", "Ярославль", COLOR_TEAM1);
-        team1.addFootballer(new Footballer("Дмитрий Яшин",  Role.GOALKEEPER.ordinal(), 10, 80));
-        team1.addFootballer(new Footballer("Артем Щадин", Role.DEFENDER.ordinal(), 55, 70));
-        team1.addFootballer(new Footballer("Денис Кутин", Role.DEFENDER.ordinal(), 50, 65));
-        team1.addFootballer(new Footballer("Дмитрий Тананеев", Role.DEFENDER.ordinal(), 60, 75));
-        team1.addFootballer(new Footballer("Вячеслав Зинков", Role.MIDFIELDER.ordinal(), 65, 60));
-        team1.addFootballer(new Footballer("Иван Олейников", Role.MIDFIELDER.ordinal(), 65, 70));
-        team1.addFootballer(new Footballer("Никита Мацхарашвили", Role.MIDFIELDER.ordinal(), 60, 60));
-        team1.addFootballer(new Footballer("Тимур Пухов", Role.ATTACKER.ordinal(), 90, 45));
-        team1.addFootballer(new Footballer("Альбек Гонгапшев", Role.ATTACKER.ordinal(), 90, 45));
-        team1.addFootballer(new Footballer("Сергей Самодин", Role.ATTACKER.ordinal(), 85, 40));
-        team1.addFootballer(new Footballer("Эльдар Низамутдинов", Role.ATTACKER.ordinal(), 90, 45));
+        team1.addFootballer(new Footballer("Дмитрий Яшин",  Role.GOALKEEPER, 10, 80));
+        team1.addFootballer(new Footballer("Артем Щадин", Role.DEFENDER, 55, 70));
+        team1.addFootballer(new Footballer("Денис Кутин", Role.DEFENDER, 50, 65));
+        team1.addFootballer(new Footballer("Дмитрий Тананеев", Role.DEFENDER, 60, 75));
+        team1.addFootballer(new Footballer("Вячеслав Зинков", Role.MIDFIELDER, 65, 60));
+        team1.addFootballer(new Footballer("Иван Олейников", Role.MIDFIELDER, 65, 70));
+        team1.addFootballer(new Footballer("Никита Мацхарашвили", Role.MIDFIELDER, 60, 60));
+        team1.addFootballer(new Footballer("Тимур Пухов", Role.ATTACKER, 90, 45));
+        team1.addFootballer(new Footballer("Альбек Гонгапшев", Role.ATTACKER, 90, 45));
+        team1.addFootballer(new Footballer("Сергей Самодин", Role.ATTACKER, 85, 40));
+        team1.addFootballer(new Footballer("Эльдар Низамутдинов", Role.ATTACKER, 90, 45));
 
         //
         team2 = new Team("Ворскла", "Полтава", COLOR_TEAM2);
-        team2.addFootballer(new Footballer("Александр Ткаченко",  Role.GOALKEEPER.ordinal(), 10, 80));
-        team2.addFootballer(new Footballer("Наджиб Якубу", Role.DEFENDER.ordinal(), 50, 60));
-        team2.addFootballer(new Footballer("Брэдли де Нойер", Role.DEFENDER.ordinal(), 45, 65));
-        team2.addFootballer(new Footballer("Евгений Опанасенко", Role.DEFENDER.ordinal(),50, 60));
-        team2.addFootballer(new Footballer("Сергей Яворский", Role.DEFENDER.ordinal(), 50, 70));
-        team2.addFootballer(new Footballer("Луизао", Role.MIDFIELDER.ordinal(), 60, 50));
-        team2.addFootballer(new Footballer("Оливье Тилль", Role.MIDFIELDER.ordinal(), 70, 50));
-        team2.addFootballer(new Footballer("Александр Скляр", Role.ATTACKER.ordinal(), 80, 30));
-        team2.addFootballer(new Footballer("Владислав Кулач", Role.ATTACKER.ordinal(), 90, 40));
-        team2.addFootballer(new Footballer("Алишер Азамов", Role.ATTACKER.ordinal(), 85, 40));
-        team2.addFootballer(new Footballer("Руслан Степанюк", Role.ATTACKER.ordinal(), 85, 40));
+        team2.addFootballer(new Footballer("Александр Ткаченко",  Role.GOALKEEPER, 10, 80));
+        team2.addFootballer(new Footballer("Наджиб Якубу", Role.DEFENDER, 50, 60));
+        team2.addFootballer(new Footballer("Брэдли де Нойер", Role.DEFENDER, 45, 65));
+        team2.addFootballer(new Footballer("Евгений Опанасенко", Role.DEFENDER,50, 60));
+        team2.addFootballer(new Footballer("Сергей Яворский", Role.DEFENDER, 50, 70));
+        team2.addFootballer(new Footballer("Луизао", Role.MIDFIELDER, 60, 50));
+        team2.addFootballer(new Footballer("Оливье Тилль", Role.MIDFIELDER, 70, 50));
+        team2.addFootballer(new Footballer("Александр Скляр", Role.ATTACKER, 80, 30));
+        team2.addFootballer(new Footballer("Владислав Кулач", Role.ATTACKER, 90, 40));
+        team2.addFootballer(new Footballer("Алишер Азамов", Role.ATTACKER, 85, 40));
+        team2.addFootballer(new Footballer("Руслан Степанюк", Role.ATTACKER, 85, 40));
 
     }
 

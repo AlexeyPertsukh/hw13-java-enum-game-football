@@ -56,7 +56,7 @@ public class Team {
         footballers = tmp;
 
         //вратарь?
-        if(footballer.getRole() == Role.GOALKEEPER.ordinal()) {
+        if(footballer.getRole() == Role.GOALKEEPER) {
             goalkeeper = footballer;
         }
     }
@@ -110,7 +110,7 @@ public class Team {
         do {
             int rand = My.random(getCntFootballer());
             footballer = getFootballer(rand);
-        } while(footballer.getRole() == Role.GOALKEEPER.ordinal());
+        } while(footballer.getRole() == Role.GOALKEEPER);
 
         return footballer;
     }

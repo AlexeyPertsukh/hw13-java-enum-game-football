@@ -8,16 +8,16 @@ public class Footballer {
 
     private String name;
     private int num;
-    private int role;   //должность(позиция) игрока
+    private Role role;   //должность(позиция) игрока
     private int attack;  //0-100
     private int defender;
 
 
-    public Footballer(String name, int role, int attack, int defender) {
+    public Footballer(String name, Role role, int attack, int defender) {
         this(name, 0, role, attack, defender);
     }
 
-    public Footballer(String name, int num, int role, int attack, int defender) {
+    public Footballer(String name, int num, Role role, int attack, int defender) {
         this.name = name;
         this.num = num;
         this.role = role;
@@ -34,12 +34,12 @@ public class Footballer {
         return num;
     }
 
-    public int getRole() {
+    public Role getRole() {
         return role;
     }
 
     public String getStrRole() {
-        return Role.values()[role].getRoleRuss();
+        return role.getRoleRuss();
     }
 
     public void setName(String name) {
@@ -54,7 +54,7 @@ public class Footballer {
         return defender;
     }
 
-    public void setRole(int role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -75,7 +75,7 @@ public class Footballer {
     public String getInfo() {
         String str1 = num + ".";
         String str2 = name +" "; //","
-        String str3 = Role.values()[role].getRoleRuss() +" "; //","
+        String str3 = role.getRoleRuss() +" "; //","
 
         return String.format("%-3s %-20s %-13s %s%-2d %s%d", str1, str2, str3, STR_ATTACK, attack, STR_DEFENDER, defender);
     }
@@ -115,7 +115,7 @@ public class Footballer {
     //поймать мяч - только для вратаря
     public boolean catchBall() {
         int hit = My.random();
-        if((role != Role.GOALKEEPER.ordinal()) || (hit > getDefender()/2)) {
+        if((role != Role.GOALKEEPER) || (hit > getDefender()/2)) {
             return false;
         }
         return true;        //поймал

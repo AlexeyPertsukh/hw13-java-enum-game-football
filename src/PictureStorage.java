@@ -7,7 +7,7 @@ https://coremission.net/raznoe/smailiki-iz-simvolov/
  */
 
 //картинки для игры
-public class Picture {
+public class PictureStorage {
 
         private final static String[] GATE_RIGHT1 =    {
                 "                           ___      ",
@@ -126,7 +126,7 @@ public class Picture {
 
 
 
-    private Picture() {
+    private PictureStorage() {
 
     }
 
@@ -140,8 +140,8 @@ public class Picture {
             str1 = str.substring(0, length);
             str2 = str.substring(length);
 
-            My.printColor(str1, color1);
-            My.printlnColor(str2, color2);
+            Color.printColor(str1, color1);
+            Color.printlnColor(str2, color2);
         }
     }
 
@@ -170,7 +170,7 @@ public class Picture {
 
     public static void printRandomPic(String[][] arr, String color)
     {
-        int rand = My.random(arr.length);
+        int rand = Util.random(arr.length);
         String[] pic = arr[rand];
 
         printPic(pic, color);
@@ -178,7 +178,7 @@ public class Picture {
 
     public static void printRandomPic(String[][] arr, String color1, String color2)
     {
-        int rand = My.random(arr.length);
+        int rand = Util.random(arr.length);
         String[] pic = arr[rand];
 
         printPic(pic, color1, color2);
@@ -201,7 +201,7 @@ public class Picture {
         int half = pic[0].length() / 2;
 
         String str1 = color1 + pic[num].substring(0, half);
-        String str2 = color2 + pic[num].substring(half) + My.ANSI_RESET;
+        String str2 = color2 + pic[num].substring(half) + Color.ANSI_RESET;
 
         return str1 + str2;
     }
@@ -212,8 +212,7 @@ public class Picture {
             return "";
         }
         int half = pic[0].length() / 2;
-        String str = (part == 0) ? pic[num].substring(0, half) : pic[num].substring(half);
-        return str;
+        return  (part == 0) ? pic[num].substring(0, half) : pic[num].substring(half);
     }
 
     public static int getArrLength(String[] arr) {

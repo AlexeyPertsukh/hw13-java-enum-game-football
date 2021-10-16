@@ -1,8 +1,8 @@
 public class Help {
 
-    private final static String COLOR1 = My.ANSI_YELLOW;
-    private final static String COLOR2 = My.ANSI_RED;
-    private final static String COLOR_HELP = My.ANSI_RESET;
+    private final static String COLOR1 = Color.ANSI_YELLOW;
+    private final static String COLOR2 = Color.ANSI_RED;
+    private final static String COLOR_HELP = Color.ANSI_RESET;
 
     private final static String GIT_URL = "https://github.com/AlexeyPertsukh/hw13-java-enum-game-football";
 
@@ -37,7 +37,7 @@ public class Help {
 
     public static void print() {
         int helpLength = HELP.length;
-        int logoLength = Picture.getArrLength(Picture.LOGO);
+        int logoLength = PictureStorage.getArrLength(PictureStorage.LOGO);
 
         int max = 0;
         for (String tmp : HELP) {
@@ -48,14 +48,14 @@ public class Help {
 
         String format = "%-" + max + "s" + " %" + "-100s   \n";      //форматированная строка для вывода тексчта
 
-        int length = (helpLength > logoLength) ? helpLength : logoLength;
+        int length = Math.max(helpLength, logoLength);
 
         for (int i = 0; i < length ; i++) {
             String str1 = getStrArr(HELP, i);
-            String str2 = Picture.getStrPic(Picture.LOGO, COLOR1, COLOR2, i) + COLOR_HELP;
+            String str2 = PictureStorage.getStrPic(PictureStorage.LOGO, COLOR1, COLOR2, i) + COLOR_HELP;
             System.out.printf(format, str1, str2);
         }
-        System.out.print(My.ANSI_RESET);
+        System.out.print(Color.ANSI_RESET);
     }
 
     private static String getStrArr(String[] arr, int num) {

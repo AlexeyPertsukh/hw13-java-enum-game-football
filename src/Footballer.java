@@ -1,5 +1,5 @@
 public class Footballer {
-    public final static String STR_ATTACK = "↯"; //"↯" "\uD83D\uDDF2"
+    public final static String STR_ATTACK = "↯";
     public final static String STR_DEFENDER = "⛨";
 
     public final static int CODE_GOAL = 1;
@@ -74,8 +74,8 @@ public class Footballer {
 
     public String getInfo() {
         String str1 = num + ".";
-        String str2 = name +" "; //","
-        String str3 = role.getRoleRuss() +" "; //","
+        String str2 = name +" ";
+        String str3 = role.getRoleRuss() +" ";
 
         return String.format("%-3s %-20s %-13s %s%-2d %s%d", str1, str2, str3, STR_ATTACK, attack, STR_DEFENDER, defender);
     }
@@ -88,7 +88,7 @@ public class Footballer {
 
     //перехватим мячь?
     public Footballer takeAway() {
-        int rand = My.random();
+        int rand = Util.random();
         if(defender > rand) {
             return this;
         }
@@ -99,7 +99,7 @@ public class Footballer {
     //удар по воротам
     public int kickOnGate(Footballer enemyGoalKeeper) {
         //удар по воротам
-        int hit = My.random();
+        int hit = Util.random();
         int code = (attack > hit) ? CODE_GOAL : CODE_MISS;
 
         //у вратаря- шанс поймать
@@ -114,11 +114,8 @@ public class Footballer {
 
     //поймать мяч - только для вратаря
     public boolean catchBall() {
-        int hit = My.random();
-        if((role != Role.GOALKEEPER) || (hit > getDefender()/2)) {
-            return false;
-        }
-        return true;        //поймал
+        int hit = Util.random();
+        return (role == Role.GOALKEEPER) && (hit <= getDefender() / 2);//поймал
     }
 
 }

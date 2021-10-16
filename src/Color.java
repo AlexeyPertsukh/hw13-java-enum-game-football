@@ -1,4 +1,4 @@
-public class My {
+public class Color {
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -31,20 +31,15 @@ public class My {
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
     //
-    private My(){
+    private Color(){
 
     }
 
     public static void printColor(String strPrint, String color){
-//        System.out.print(color);
-//        System.out.print(strPrint);
-//        System.out.print(ANSI_RESET);
         System.out.print(color + strPrint + ANSI_RESET);
     }
 
     public static void printlnColor(String strPrint, String color){
-//        printColor(color, strPrint);
-//        System.out.println();
         System.out.println(color + strPrint + ANSI_RESET);
     }
 
@@ -116,59 +111,5 @@ public class My {
     public static void resetTextColor(){
         System.out.print(ANSI_RESET);
     }
-
-    public static boolean isInteger(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    //пауза
-    public static void sleep(int n){
-        try {
-            Thread.sleep(n);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-    public static void sleepAnimation(int n, boolean on){
-        n /= 500;
-        for (int i = 0; i < n; i++) {
-            if (on) {
-                sleep(500);
-                System.out.print(".");
-            }
-        }
-    }
-
-    public static void sleepAnimationLn(int n, boolean on){
-        sleepAnimation(n, on);
-        System.out.println();
-    }
-
-
-    public static int random(int min, int max) {
-        if(min > max) {
-            int tmp = min;
-            min = max;
-            max = tmp;
-        }
-        return (int) (Math.random() * (max - min)) + min;
-    }
-
-    public static int random(int max) {
-        return random(0, max);
-    }
-
-    public static int random() {
-        return random(0, 100);
-    }
-
-
-
 
 }

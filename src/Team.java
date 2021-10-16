@@ -22,7 +22,7 @@ public class Team {
     }
 
     public String getNameColored() {
-        return color + name + My.ANSI_RESET;
+        return color + name + Color.ANSI_RESET;
     }
 
     public int getCntFootballer() {
@@ -44,9 +44,7 @@ public class Team {
     public void addFootballer(Footballer footballer)
     {
         Footballer[] tmp = new Footballer[footballers.length + 1];
-        for (int i = 0; i < footballers.length; i++) {
-            tmp[i] = footballers[i];
-        }
+        System.arraycopy(footballers, 0, tmp, 0, footballers.length);
 
         cntFootballer++;
         footballer.setNum(cntFootballer);
@@ -83,7 +81,7 @@ public class Team {
     }
 
     public String getInfoColored() {
-        return color + getInfo() + My.ANSI_RESET;
+        return color + getInfo() + Color.ANSI_RESET;
     }
 
 
@@ -108,7 +106,7 @@ public class Team {
         Footballer footballer;
 
         do {
-            int rand = My.random(getCntFootballer());
+            int rand = Util.random(getCntFootballer());
             footballer = getFootballer(rand);
         } while(footballer.getRole() == Role.GOALKEEPER);
 

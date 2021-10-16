@@ -40,7 +40,7 @@ public class Match {
 
     public void timeInc() {
         min += step;
-        sec = My.random(59);
+        sec = Util.random(59);
         turn++;
     }
 
@@ -55,15 +55,15 @@ public class Match {
         matchOn = true;
         System.out.println();
         String str = String.format("\"%s\"", team.getName());
-        str = team.getColor() + str + My.ANSI_RESET;
+        str = team.getColor() + str + Color.ANSI_RESET;
         System.out.printf("Игра началась, мяч у игроков команды %s!   \n", str);
-        My.sleepAnimationLn(Game.PAUSE, pauseOn);
+        Util.sleepAnimationLn(Game.PAUSE, pauseOn);
     }
 
     public void off() {
         System.out.printf("%s Матч окончен! \n", getTime());
-        My.printlnColor("СЧЁТ " + getScoreAdditional(), getWinColor());
-        My.sleepAnimationLn(Game.PAUSE * 3, pauseOn);
+        Color.printlnColor("СЧЁТ " + getScoreAdditional(), getWinColor());
+        Util.sleepAnimationLn(Game.PAUSE * 3, pauseOn);
         reset();
     }
 
@@ -84,7 +84,7 @@ public class Match {
 
 
     public String getWinColor() {
-        String color = My.ANSI_RESET;
+        String color = Color.ANSI_RESET;
         if(goal[0] > goal[1]) {
             color = team1.getColor();
         }

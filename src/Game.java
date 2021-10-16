@@ -24,9 +24,9 @@ public class Game {
     private final static int NUM_PENALTY = 5;           //количество ударов в пенальти до "правила мгновенной смерти"
 
 
-    private final static String COLOR_TEAM1 = My.ANSI_GREEN;
-    private final static String COLOR_TEAM2 = My.ANSI_PURPLE;
-    private final static String COLOR_HEADER = My.ANSI_BLUE;
+    private final static String COLOR_TEAM1 = Color.ANSI_GREEN;
+    private final static String COLOR_TEAM2 = Color.ANSI_PURPLE;
+    private final static String COLOR_HEADER = Color.ANSI_BLUE;
 
     private final static int NUM_PASS_FOR_KICK_ON_GATE = 2; //количество пасов до того, как появится возможность ударить по воротам
 
@@ -49,7 +49,7 @@ public class Game {
     //=========== ОСНОВНОЙ БЛОК =====================
     public void go(){
 
-        String cmd = "";
+        String cmd;
         boolean end = false;
 
         addTeams();
@@ -97,7 +97,7 @@ public class Game {
                 actionMatch();
                 //анимация паузы
                 if(match.isOn()) {
-                    sleepAnimatLn();
+                    sleepAnimationLn();
                 }
                 //увеличиваем время в матче
                 match.timeInc();
@@ -170,11 +170,11 @@ public class Game {
     private void printHeader() {
         System.out.println();
         System.out.println( team1.getInfoColored() + " : " + team2.getInfoColored());
-        My.setTextColor(COLOR_HEADER);
+        Color.setTextColor(COLOR_HEADER);
         System.out.println("......................................................................................");
         System.out.printf ("%s помощь,  %s пауза вкл/откл,  %s состав команд,  %s играть,  %s пенальти,  %s выход  \n", CMD_HELP, CMD_SW_PAUSE, CMD_PRINT_TEAMS, CMD_GAME, CMD_PENALTY, CMD_END);
         System.out.println("......................................................................................");
-        My.resetTextColor();
+        Color.resetTextColor();
     }
 
     //фокус на команду и игрока
@@ -241,7 +241,7 @@ public class Game {
             return;
         }
 
-        num = My.random(2);   //вероятность выхода на перехват мяча
+        num = Util.random(2);   //вероятность выхода на перехват мяча
 
         if(num == 1) {  //попытка перехвата мяча
             if(takeAway()) {
@@ -262,7 +262,7 @@ public class Game {
     //начальная часть строки слева- имя команды и текущее время матча
     private void printLeft(String teamName, String color) {
         String str = String.format("[%s] ", teamName);
-        My.printColor(str, color);
+        Color.printColor(str, color);
         System.out.printf("%s ", match.getTime());
     }
 
@@ -285,13 +285,13 @@ public class Game {
         System.out.printf("%s %s бьет по воротам...  \n", focusFootballer.getStrRole(), focusFootballer.getName());
         //рисуем картинку
         if(focusTeam == team1) {
-            Picture.printPicGateRight(focusTeam.getColor(), otherTeam.getColor());
+            PictureStorage.printPicGateRight(focusTeam.getColor(), otherTeam.getColor());
         }
         else {
-            Picture.printPicGateLeft(otherTeam.getColor(), focusTeam.getColor());
+            PictureStorage.printPicGateLeft(otherTeam.getColor(), focusTeam.getColor());
         }
 
-        sleepAnimatLn(PAUSE * 3);
+        sleepAnimationLn(PAUSE * 3);
 
         int code = focusFootballer.kickOnGate(otherTeam.getGoalkeeper());
 
@@ -301,22 +301,22 @@ public class Game {
             case Footballer.CODE_GOAL:
                 match.addGoal(focusTeam);
                 System.out.println("ГООООЛ!!!");
-                Picture.printManWin(focusTeam.getColor());
-                My.printlnColor("Счет " + match.getScoreAdditional(), match.getWinColor());
+                PictureStorage.printManWin(focusTeam.getColor());
+                Color.printlnColor("Счет " + match.getScoreAdditional(), match.getWinColor());
                 break;
             case Footballer.CODE_MISS:
                 System.out.println("МИМО");
-                Picture.printManLoose(focusTeam.getColor());
+                PictureStorage.printManLoose(focusTeam.getColor());
                 break;
             case Footballer.CODE_CATCH:
                 System.out.println("и-и-и-иии ВРАТАРЬ ЛОВИТ МЯЧ!");
-                Picture.printManLoose(focusTeam.getColor());
+                PictureStorage.printManLoose(focusTeam.getColor());
                 break;
             default:
                 break;
         }
 
-        sleepAnimatLn(); //пауза
+        sleepAnimationLn(); //пауза
         nextFocus();    //передаем мяч следующей команде
         printLeft();
         System.out.printf("мяч ведет %s %s \n", focusFootballer.getStrRole(), focusFootballer.getName());
@@ -331,7 +331,7 @@ public class Game {
         if(result == null) {        //не удалось- выходим
             printLeft(otherTeam.getName(), otherTeam.getColor());
             System.out.printf("%s команды \"%s\" %s не смог отобрать мяч\n", enemy.getStrRole(), otherTeam.getName(), enemy.getName());
-            sleepAnimatLn();
+            sleepAnimationLn();
             return false;
         }
 
@@ -342,33 +342,28 @@ public class Game {
         return true;
     }
 
-
-    private void sleepAnimatLn() {
-        sleepAnimatLn(PAUSE);
+    private void sleepAnimationLn() {
+        sleepAnimationLn(PAUSE);
     }
 
-    private void sleepAnimatLn(int pause) {
-        My.sleepAnimationLn(pause, pauseOn);
+    private void sleepAnimationLn(int pause) {
+        Util.sleepAnimationLn(pause, pauseOn);
     }
 
-    private void sleepAnimat(int pause) {
-        My.sleepAnimation(pause, pauseOn);
-    }
-
-    private void sleepAnimat() {
-        My.sleepAnimation(PAUSE, pauseOn);
+    private void sleepAnimation() {
+        Util.sleepAnimation(Game.PAUSE, pauseOn);
     }
 
     private void penalty() {
         printLeft();
         System.out.printf("нарушение в штрафной площадке! %s %s сбит с ног \n", focusFootballer.getStrRole(), focusFootballer.getName());
         if(focusTeam == team1) {
-            Picture.printShotDown(team1.getColor(), team2.getColor());
+            PictureStorage.printShotDown(team1.getColor(), team2.getColor());
         }
         else {
-            Picture.printShotDown(team2.getColor(), team1.getColor());
+            PictureStorage.printShotDown(team2.getColor(), team1.getColor());
         }
-        sleepAnimatLn(PAUSE * 3);
+        sleepAnimationLn(PAUSE * 3);
         nextFocusFootballer();
         printLeft();
         System.out.printf("на пенальти выходит %s %s \n", focusFootballer.getStrRole(), focusFootballer.getName());
@@ -379,10 +374,10 @@ public class Game {
         setFocus(footballer);
         String color = team.getColor();
         String str = String.format("[%s] ", team.getName());
-        My.printColor(str, color);
+        Color.printColor(str, color);
         System.out.printf("на пенальти выходит %s %s. Удар", focusFootballer.getStrRole(), focusFootballer.getName());
         int code = focusFootballer.kickOnGate(otherTeam.getGoalkeeper());
-        sleepAnimat(PAUSE);
+        sleepAnimation();
         switch (code) {
             case Footballer.CODE_GOAL:
                 System.out.println(" ГОЛ!");
@@ -496,7 +491,7 @@ public class Game {
         String color = (goal1 > goal2) ? team1.getColor() : team2.getColor();
         String strWin  = (goal1 > goal2) ? team1.getName() : team2.getName();
         strWin = String.format("Победила команда \"%s\"", strWin);
-        My.printlnColor(strWin, color);
+        Color.printlnColor(strWin, color);
         System.out.println("............................");
     }
 
@@ -516,7 +511,7 @@ public class Game {
 
     //распечатывает счет при пенальти
     private void printScope(int goalTeam1, int goalTeam2) {
-        String color = My.ANSI_RESET;
+        String color = Color.ANSI_RESET;
 
         if(goalTeam1 > goalTeam2) {
             color = team1.getColor();
@@ -525,7 +520,7 @@ public class Game {
             color = team2.getColor();
         }
         String str = String.format("СЧЕТ %d:%d   \n", + goalTeam1, goalTeam2);
-        My.printlnColor(str, color);
+        Color.printlnColor(str, color);
     }
 
 

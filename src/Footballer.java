@@ -12,7 +12,6 @@ public class Footballer {
     private int attack;  //0-100
     private int defender;
 
-
     public Footballer(String name, Role role, int attack, int defender) {
         this(name, 0, role, attack, defender);
     }

@@ -107,9 +107,7 @@ public class Color {
         System.out.print(colorFont + colorBackgound);
     }
 
-
     public static void resetTextColor(){
         System.out.print(ANSI_RESET);
     }
-
 }

@@ -1,7 +1,7 @@
 public class Team {
-    private String name;
-    private String city;
-    private String color;
+    private final String name;
+    private final String city;
+    private final String color;
     private Footballer[] footballers;
     private Footballer  goalkeeper;
     private int cntFootballer;

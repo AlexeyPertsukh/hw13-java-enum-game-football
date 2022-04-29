@@ -2,14 +2,14 @@
 public class Match {
     private int min;
     private int sec;
-    private int step;
+    private final int step;
     private boolean matchOn;
     private int[] goal;
     private int turn;       //ход, счетчик ходов
 
 
-    private Team team1;
-    private Team team2;
+    private final Team team1;
+    private final Team team2;
 
     private boolean pauseOn;
 

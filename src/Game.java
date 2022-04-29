@@ -23,7 +23,6 @@ public class Game {
     private final static int MATCH_TIME_STEP_INC = 3;   //шаг увеличения времени в матче, мин.
     private final static int NUM_PENALTY = 5;           //количество ударов в пенальти до "правила мгновенной смерти"
 
-
     private final static String COLOR_TEAM1 = Color.ANSI_GREEN;
     private final static String COLOR_TEAM2 = Color.ANSI_PURPLE;
     private final static String COLOR_HEADER = Color.ANSI_BLUE;
@@ -45,12 +44,13 @@ public class Game {
         pauseOn = DEFAULT_PAUSE_STATE;     //включение паузы по умолчанию
     }
 
-
     //=========== ОСНОВНОЙ БЛОК =====================
     public void go(){
 
         String cmd;
         boolean end = false;
+
+        Help.print();
 
         addTeams();
 

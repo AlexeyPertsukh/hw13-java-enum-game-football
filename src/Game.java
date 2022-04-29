@@ -49,7 +49,7 @@ public class Game {
 
         String cmd;
         boolean end = false;
-
+        System.out.println("ФУТБОЛ " + VERSION);
         Help.print();
 
         addTeams();
@@ -59,7 +59,6 @@ public class Game {
 
         setFocus(team1);
 
-        System.out.println("ФУТБОЛ " + VERSION);
         printTeams();
 
         do {

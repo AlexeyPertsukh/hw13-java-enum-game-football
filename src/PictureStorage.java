@@ -12,7 +12,7 @@ public class PictureStorage {
         private final static String[] GATE_RIGHT1 =    {
                 "                           ___      ",
                 "     o___         o___    |   |\\   ",
-                "    /|            /\\      |   |X\\ ",
+                "    /|            |\\      |   |X\\ ",
                 "    / > o          <\\     |   |XX\\",
     };
 
@@ -37,7 +37,7 @@ public class PictureStorage {
     private final static String[] GATE_LEFT1 = {
             "     ___                          ",
             "   /|   |    ___o         ___o    ",
-            "  /X|   |      /\\            |\\    ",
+            "  /X|   |      /|            |\\    ",
             " /XX|   |     />          o < \\    ",
     };
 
